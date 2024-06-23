@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cs4fi7sgd5h3c"]
+[gd_scene load_steps=40 format=3 uid="uid://cs4fi7sgd5h3c"]
 
 [ext_resource type="Texture2D" uid="uid://cw31lxa67xm7l" path="res://Player/Player.png" id="1_juump"]
 
@@ -287,9 +287,16 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo1jk"]
+size = Vector2(11, 19)
+
 [node name="player" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_3n3v3")
-animation = &"run_up"
-frame_progress = 0.444094
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -9.5)
+shape = SubResource("RectangleShape2D_mo1jk")
