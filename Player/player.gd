@@ -19,17 +19,19 @@ func playerMovement(delta):
 	elif Input.is_action_pressed("Left"):
 		velocity.y = 0
 		velocity.x = -speed
-		animated_sprite_2d.flip_h
-		animated_sprite_2d.play("run_right")
+		
 	elif Input.is_action_pressed("Up"):
 		velocity.y = -speed
 		velocity.x = 0
+		animated_sprite_2d.play("run_up")
 	elif Input.is_action_pressed("Down"):
 		velocity.y = speed
 		velocity.x = 0
 	else:
 		velocity.y = 0
+		animated_sprite_2d.play("idle_down")
 		velocity.x = 0
+		animated_sprite_2d.play("idle_right")
 		
 	
 
