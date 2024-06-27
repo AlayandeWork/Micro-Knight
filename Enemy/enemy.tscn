@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://bsffsxoaothbb"]
+[gd_scene load_steps=19 format=3 uid="uid://bsffsxoaothbb"]
 
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_dki6w"]
 [ext_resource type="Texture2D" uid="uid://ccjtopt4xx3ld" path="res://Enemy/enemy_sprite.png" id="1_hvhcu"]
 [ext_resource type="Texture2D" uid="uid://bb5lcyutql2mw" path="res://World/Resources/enemy_afterdead_explosion_anim_spritesheet.png" id="1_kny3i"]
 
@@ -112,12 +113,14 @@ radius = 27.0185
 radius = 6.08276
 
 [node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_dki6w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7yanx")
 animation = &"enemy_idle"
 
 [node name="enemyDetection" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyDetection"]
 shape = SubResource("CircleShape2D_e710r")
