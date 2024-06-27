@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
 ::res://::1719418698
 icon.svg::CompressedTexture2D::1985095192275914223::1719108870::1719108901::1::::<><>::
-::res://Enemy/::1719486359
-enemy.tscn::PackedScene::3660478716885882039::1719486262::0::1::::<><>::
+::res://Enemy/::1719504799
+enemy.tscn::PackedScene::3660478716885882039::1719504799::0::1::::<><>::uid://ccjtopt4xx3ld::::res://Enemy/enemy_sprite.png
 enemy_sprite.png::CompressedTexture2D::4932977896976872049::1712093583::1719486362::1::::<><>::
 ::res://Player/::1719486257
 player.gd::GDScript::-1::1719375556::0::1::::<>CharacterBody2D<>::
@@ -12,7 +12,7 @@ player.tscn::PackedScene::6096427087885083830::1719486257::0::1::::<><>::res://P
 ::res://World/Level/::1719484800
 level.gd::GDScript::-1::1719177618::0::1::::<>Node2D<>::
 level.tscn::PackedScene::7472442635638612097::1719484800::0::1::::<><>::res://World/Level/level.gd<>uid://cs4fi7sgd5h3c::::res://Player/player.tscn<>uid://4fy24dcseiw5::::res://World/Resources/full spritesheet.png<>uid://matatknynsq7::::res://World/Resources/full tilemap.png
-::res://World/Resources/::1719155619
+::res://World/Resources/::1719515477
 bag_coins.png::CompressedTexture2D::2851804018759323296::1712093583::1719155619::1::::<><>::
 barrel.png::CompressedTexture2D::7107786203001848401::1712093583::1719155619::1::::<><>::
 bomb_anim_f0.png::CompressedTexture2D::2249973437797738166::1712093583::1719155619::1::::<><>::
@@ -37,6 +37,7 @@ chest_closed_anim_f6.png::CompressedTexture2D::207522874226684855::1712093583::1
 chest_closed_anim_f7.png::CompressedTexture2D::156106083940960471::1712093583::1719155619::1::::<><>::
 chest_open.png::CompressedTexture2D::1027356067829581393::1712093583::1719155619::1::::<><>::
 chest_spritesheet.png::CompressedTexture2D::5758422759908870731::1712093583::1719155619::1::::<><>::
+enemy_afterdead_explosion_anim_spritesheet.png::CompressedTexture2D::2519213610802777810::1712093583::1719515480::1::::<><>::
 flag_green.png::CompressedTexture2D::9022186885713533701::1712093583::1719155619::1::::<><>::
 flag_red.png::CompressedTexture2D::5023928789780690154::1712093583::1719155619::1::::<><>::
 full spritesheet.png::CompressedTexture2D::2047305306461724906::1712093583::1719155619::1::::<><>::

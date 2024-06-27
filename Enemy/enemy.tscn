@@ -1,6 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsffsxoaothbb"]
+[gd_scene load_steps=18 format=3 uid="uid://bsffsxoaothbb"]
 
 [ext_resource type="Texture2D" uid="uid://ccjtopt4xx3ld" path="res://Enemy/enemy_sprite.png" id="1_hvhcu"]
+[ext_resource type="Texture2D" uid="uid://bb5lcyutql2mw" path="res://World/Resources/enemy_afterdead_explosion_anim_spritesheet.png" id="1_kny3i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u5gl"]
+atlas = ExtResource("1_kny3i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nbni"]
+atlas = ExtResource("1_kny3i")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rns21"]
+atlas = ExtResource("1_kny3i")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csiie"]
+atlas = ExtResource("1_kny3i")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1d2a"]
 atlas = ExtResource("1_hvhcu")
@@ -38,6 +55,23 @@ region = Rect2(48, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7u5gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nbni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rns21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csiie")
+}],
+"loop": true,
+"name": &"enemy_death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_k1d2a")
 }, {
 "duration": 1.0,
@@ -71,8 +105,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_e710r"]
+radius = 27.0185
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dhkb6"]
+radius = 6.08276
+
 [node name="Enemy" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7yanx")
-animation = &"enemy_run"
+animation = &"enemy_idle"
+
+[node name="enemyDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyDetection"]
+shape = SubResource("CircleShape2D_e710r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dhkb6")
