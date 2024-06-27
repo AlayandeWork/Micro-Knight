@@ -1,8 +1,78 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsffsxoaothbb"]
+[gd_scene load_steps=11 format=3 uid="uid://bsffsxoaothbb"]
+
+[ext_resource type="Texture2D" uid="uid://ccjtopt4xx3ld" path="res://Enemy/enemy_sprite.png" id="1_hvhcu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1d2a"]
+atlas = ExtResource("1_hvhcu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kosyg"]
+atlas = ExtResource("1_hvhcu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axq60"]
+atlas = ExtResource("1_hvhcu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb0qb"]
+atlas = ExtResource("1_hvhcu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mute5"]
+atlas = ExtResource("1_hvhcu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo58k"]
+atlas = ExtResource("1_hvhcu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o668f"]
+atlas = ExtResource("1_hvhcu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vgsh"]
+atlas = ExtResource("1_hvhcu")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7yanx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1d2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kosyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axq60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qb0qb")
+}],
+"loop": true,
+"name": &"enemy_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mute5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo58k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o668f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vgsh")
+}],
+"loop": true,
+"name": &"enemy_run",
+"speed": 5.0
+}]
 
 [node name="Enemy" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7yanx")
+animation = &"enemy_run"
