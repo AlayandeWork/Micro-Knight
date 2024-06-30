@@ -1,9 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1719628521
+::res://::1719785670
 icon.svg::CompressedTexture2D::1985095192275914223::1719108870::1719108901::1::::<><>::
-::res://Enemy/::1719524966
+::res://Enemy/::1719628524
 enemy.gd::GDScript::-1::1719516132::0::1::::<>CharacterBody2D<>::
-enemy.tscn::PackedScene::3660478716885882039::1719524966::0::1::::<><>::res://Enemy/enemy.gd<>uid://ccjtopt4xx3ld::::res://Enemy/enemy_sprite.png<>uid://bb5lcyutql2mw::::res://World/Resources/enemy_afterdead_explosion_anim_spritesheet.png
+enemy.tscn::PackedScene::3660478716885882039::1719628524::0::1::::<><>::res://Enemy/enemy.gd<>uid://ccjtopt4xx3ld::::res://Enemy/enemy_sprite.png<>uid://bb5lcyutql2mw::::res://World/Resources/enemy_afterdead_explosion_anim_spritesheet.png
 enemy_sprite.png::CompressedTexture2D::4932977896976872049::1712093583::1719486362::1::::<><>::
 ::res://Player/::1719515957
 player.gd::GDScript::-1::1719375556::0::1::::<>CharacterBody2D<>::
