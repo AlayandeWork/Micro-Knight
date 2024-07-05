@@ -107,17 +107,19 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e710r"]
-radius = 27.0185
+radius = 48.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dhkb6"]
 radius = 6.08276
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_dki6w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7yanx")
-animation = &"enemy_idle"
+animation = &"enemy_run"
 
 [node name="enemyDetection" type="Area2D" parent="."]
 collision_layer = 4
@@ -127,3 +129,6 @@ shape = SubResource("CircleShape2D_e710r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dhkb6")
+
+[connection signal="body_entered" from="enemyDetection" to="." method="_on_enemy_detection_body_entered"]
+[connection signal="body_exited" from="enemyDetection" to="." method="_on_enemy_detection_body_exited"]
