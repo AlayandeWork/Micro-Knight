@@ -134,6 +134,7 @@ shape = SubResource("CircleShape2D_e710r")
 shape = SubResource("CircleShape2D_dhkb6")
 
 [node name="playerCanAttack" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerCanAttack"]
 shape = SubResource("CircleShape2D_oihge")

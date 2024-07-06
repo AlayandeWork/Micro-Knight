@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cs4fi7sgd5h3c"]
+[gd_scene load_steps=45 format=3 uid="uid://cs4fi7sgd5h3c"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_b3haw"]
 [ext_resource type="Texture2D" uid="uid://cw31lxa67xm7l" path="res://Player/Player.png" id="1_juump"]
@@ -74,6 +74,18 @@ region = Rect2(192, 96, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_iinlq"]
 atlas = ExtResource("1_juump")
 region = Rect2(240, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qwio"]
+atlas = ExtResource("1_juump")
+region = Rect2(0, 432, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn0hx"]
+atlas = ExtResource("1_juump")
+region = Rect2(48, 432, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxm0h"]
+atlas = ExtResource("1_juump")
+region = Rect2(96, 432, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3p36"]
 atlas = ExtResource("1_juump")
@@ -220,6 +232,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3qwio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn0hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxm0h")
+}],
+"loop": true,
+"name": &"player_death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_i3p36")
 }, {
 "duration": 1.0,
@@ -302,17 +328,24 @@ script = ExtResource("1_b3haw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_3n3v3")
-animation = &"idle_down"
+animation = &"player_death"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_mo1jk")
 
 [node name="enemyCanAttack" type="Area2D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyCanAttack"]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_hiod1")
 
+[node name="enemyAttackCooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="body_entered" from="enemyCanAttack" to="." method="_on_enemy_can_attack_body_entered"]
 [connection signal="body_exited" from="enemyCanAttack" to="." method="_on_enemy_can_attack_body_exited"]
+[connection signal="timeout" from="enemyAttackCooldownTimer" to="." method="_on_enemy_attack_cooldown_timer_timeout"]

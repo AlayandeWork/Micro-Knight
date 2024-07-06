@@ -13,6 +13,14 @@ func _ready():
 
 func _physics_process(delta):
 	player_movement(delta)
+	enemyAttacking()
+	
+	# Player Health Check function
+	if playerHealth <= 0:
+		playerIsAlive = false
+		playerHealth = 0
+		print("Player is Dead!!!")
+		self.queue_free()
 
 func player_movement(delta):
 	if Input.is_action_pressed("ui_right"):
@@ -80,4 +88,17 @@ func _on_enemy_can_attack_body_entered(body):
 
 
 func _on_enemy_can_attack_body_exited(body):
-	pass # Replace with function body.
+	if body.has_method("enemy"):
+		enemyInRange = false
+		
+func enemyAttacking():
+	if enemyInRange and enemyAttackCoolDown == true:
+		playerHealth -= 10
+		enemyAttackCoolDown = false
+		$enemyAttackCooldownTimer.start()
+		print ("your health: ", playerHealth)
+		
+
+
+func _on_enemy_attack_cooldown_timer_timeout():
+	enemyAttackCoolDown = true
