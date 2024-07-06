@@ -1,7 +1,55 @@
-[gd_scene load_steps=45 format=3 uid="uid://cs4fi7sgd5h3c"]
+[gd_scene load_steps=57 format=3 uid="uid://cs4fi7sgd5h3c"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_b3haw"]
 [ext_resource type="Texture2D" uid="uid://cw31lxa67xm7l" path="res://Player/Player.png" id="1_juump"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcvdl"]
+atlas = ExtResource("1_juump")
+region = Rect2(0, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51ydq"]
+atlas = ExtResource("1_juump")
+region = Rect2(48, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jj3u"]
+atlas = ExtResource("1_juump")
+region = Rect2(96, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ij6v"]
+atlas = ExtResource("1_juump")
+region = Rect2(144, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwbyv"]
+atlas = ExtResource("1_juump")
+region = Rect2(0, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcuml"]
+atlas = ExtResource("1_juump")
+region = Rect2(48, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i7k8"]
+atlas = ExtResource("1_juump")
+region = Rect2(96, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m6th"]
+atlas = ExtResource("1_juump")
+region = Rect2(144, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytjgi"]
+atlas = ExtResource("1_juump")
+region = Rect2(0, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_invio"]
+atlas = ExtResource("1_juump")
+region = Rect2(48, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjbu5"]
+atlas = ExtResource("1_juump")
+region = Rect2(96, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd3bf"]
+atlas = ExtResource("1_juump")
+region = Rect2(144, 384, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvhlh"]
 atlas = ExtResource("1_juump")
@@ -161,6 +209,57 @@ region = Rect2(240, 240, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3n3v3"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcvdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51ydq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jj3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ij6v")
+}],
+"loop": true,
+"name": &"attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwbyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcuml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i7k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m6th")
+}],
+"loop": true,
+"name": &"attack_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytjgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_invio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjbu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd3bf")
+}],
+"loop": true,
+"name": &"attack_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cvhlh")
@@ -328,9 +427,7 @@ script = ExtResource("1_b3haw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_3n3v3")
-animation = &"player_death"
-frame = 2
-frame_progress = 1.0
+animation = &"attack_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -4)
@@ -346,6 +443,10 @@ shape = SubResource("CircleShape2D_hiod1")
 [node name="enemyAttackCooldownTimer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="playerAttackCooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="body_entered" from="enemyCanAttack" to="." method="_on_enemy_can_attack_body_entered"]
 [connection signal="body_exited" from="enemyCanAttack" to="." method="_on_enemy_can_attack_body_exited"]
 [connection signal="timeout" from="enemyAttackCooldownTimer" to="." method="_on_enemy_attack_cooldown_timer_timeout"]
+[connection signal="timeout" from="playerAttackCooldownTimer" to="." method="_on_player_attack_cooldown_timer_timeout"]

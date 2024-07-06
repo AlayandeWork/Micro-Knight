@@ -6,6 +6,7 @@ var playerIsAlive = true
 var playerHealth = 100
 var speed = 150
 var direction = "none"
+var playerAttackAnim = false
 @onready var anim = $AnimatedSprite2D
 
 func _ready():
@@ -14,6 +15,7 @@ func _ready():
 func _physics_process(delta):
 	player_movement(delta)
 	enemyAttacking()
+	AttackAnimation()
 	
 	# Player Health Check function
 	if playerHealth <= 0:
@@ -58,28 +60,32 @@ func animationplay(move):
 		if move == 1:
 			anim.play("run_right")
 		else:
-			anim.play("idle_right")
+			if playerAttackAnim == false:
+				anim.play("idle_right")
 			
 	elif direction == "left":
 		anim.flip_h = true
 		if move == 1:
 			anim.play("run_right")
 		else:
-			anim.play("idle_right")
+			if playerAttackAnim == false:
+				anim.play("idle_right")
 			
 	elif direction == "up":
 		anim.flip_h = false
 		if move == 1:
 			anim.play("run_up")
 		else:
-			anim.play("idle_up")
+			if playerAttackAnim == false:
+				anim.play("idle_up")
 			
 	elif direction == "down":
 		anim.flip_h = false
 		if move == 1:
 			anim.play("run_down")
 		else:
-			anim.play("idle_down")
+			if playerAttackAnim == false:
+				anim.play("idle_down")
 
 
 func _on_enemy_can_attack_body_entered(body):
@@ -98,7 +104,35 @@ func enemyAttacking():
 		$enemyAttackCooldownTimer.start()
 		print ("your health: ", playerHealth)
 		
-
+func player():
+	pass
 
 func _on_enemy_attack_cooldown_timer_timeout():
 	enemyAttackCoolDown = true
+	
+func AttackAnimation():
+	if 	Input.is_action_just_pressed("Attack"):
+		Globle.playerCurrentlyAttacking = true
+		playerAttackAnim = true
+		
+		if direction == "right":
+			$AnimatedSprite2D.flip_h = false
+			anim.play("attack_right")
+			$playerAttackCooldownTimer.start()
+		if direction == "left":
+			$AnimatedSprite2D.flip_h = true
+			anim.play("attack_right")
+			$playerAttackCooldownTimer.start()
+		if direction == "up":
+			anim.play("attack_up")
+			$playerAttackCooldownTimer.start()
+		if direction == "down":
+			anim.play("attack_down")
+			$playerAttackCooldownTimer.start()
+			
+
+		
+func _on_player_attack_cooldown_timer_timeout():
+	$playerAttackCooldownTimer.stop()
+	Globle.playerCurrentlyAttacking = false
+	playerAttackAnim = false

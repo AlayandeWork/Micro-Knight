@@ -139,5 +139,11 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerCanAttack"]
 shape = SubResource("CircleShape2D_oihge")
 
+[node name="playerAttackCooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="body_entered" from="enemyDetection" to="." method="_on_enemy_detection_body_entered"]
 [connection signal="body_exited" from="enemyDetection" to="." method="_on_enemy_detection_body_exited"]
+[connection signal="body_entered" from="playerCanAttack" to="." method="_on_player_can_attack_body_entered"]
+[connection signal="body_exited" from="playerCanAttack" to="." method="_on_player_can_attack_body_exited"]
+[connection signal="timeout" from="playerAttackCooldownTimer" to="." method="_on_player_attack_cooldown_timer_timeout"]
