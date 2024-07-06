@@ -27,3 +27,6 @@ func _on_enemy_detection_body_entered(body):
 func _on_enemy_detection_body_exited(body):
 	player = null
 	playerIsChasing = false
+
+func enemy():
+	pass

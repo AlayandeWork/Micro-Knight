@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cs4fi7sgd5h3c"]
+[gd_scene load_steps=42 format=3 uid="uid://cs4fi7sgd5h3c"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_b3haw"]
 [ext_resource type="Texture2D" uid="uid://cw31lxa67xm7l" path="res://Player/Player.png" id="1_juump"]
@@ -291,6 +291,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo1jk"]
 size = Vector2(9, 8)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hiod1"]
+radius = 13.0
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_mask = 6
@@ -304,3 +307,12 @@ animation = &"idle_down"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_mo1jk")
+
+[node name="enemyCanAttack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyCanAttack"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_hiod1")
+
+[connection signal="body_entered" from="enemyCanAttack" to="." method="_on_enemy_can_attack_body_entered"]
+[connection signal="body_exited" from="enemyCanAttack" to="." method="_on_enemy_can_attack_body_exited"]

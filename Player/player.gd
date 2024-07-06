@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+var enemyInRange = false
+var enemyAttackCoolDown = true
+var playerIsAlive = true
+var playerHealth = 100
 var speed = 150
 var direction = "none"
 @onready var anim = $AnimatedSprite2D
@@ -68,3 +72,12 @@ func animationplay(move):
 			anim.play("run_down")
 		else:
 			anim.play("idle_down")
+
+
+func _on_enemy_can_attack_body_entered(body):
+	if body.has_method("enemy"):
+		enemyInRange = true
+
+
+func _on_enemy_can_attack_body_exited(body):
+	pass # Replace with function body.
