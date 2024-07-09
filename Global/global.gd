@@ -5,10 +5,10 @@ var playerCurrentlyAttacking = false
 var currentScene = "level"
 var isTransitioning = false
 
-var playerExitX = 717
-var playerExitY = 164
-var playerEnterX = 217
-var playerEnterY = 156
+var playerExitX = 169
+var playerExitY = 14
+var playerEnterX = 156
+var playerEnterY = 132
 
 
 var gameStart = true
