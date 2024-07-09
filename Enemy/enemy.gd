@@ -9,6 +9,7 @@ var canTakeDamage = true
 
 func _physics_process(delta):
 	playerAttacking()
+	UpdateEnemyHeathBar()
 	if playerIsChasing:
 		position += (player.position - position)/enemySpeed
 		$AnimatedSprite2D.play("enemy_run")
@@ -55,6 +56,14 @@ func playerAttacking():
 			if enemyHealth <= 0:
 				self.queue_free()
 
-
+func UpdateEnemyHeathBar():
+	$enemyHealthBar.value = enemyHealth
+	
+	if enemyHealth >= 100:
+		$enemyHealthBar.visible = false
+	else:
+		$enemyHealthBar.visible = true
+		
+		
 func _on_player_attack_cooldown_timer_timeout():
 	canTakeDamage = true

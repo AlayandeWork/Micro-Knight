@@ -3,3 +3,5 @@ res://Player/player.tscn
 res://Enemy/enemy.tscn
 res://World/Level/level_2.tscn
 res://Global/global.gd
+res://Player/player.gd
+res://Enemy/enemy.gd

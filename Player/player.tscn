@@ -449,7 +449,21 @@ wait_time = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="playerHealthBar" type="ProgressBar" parent="."]
+modulate = Color(0.91954, 0.525737, 0.766539, 1)
+offset_left = -4.0
+offset_top = 1.0
+offset_right = 96.0
+offset_bottom = 28.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+
+[node name="healthRegen" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
 [connection signal="body_entered" from="enemyCanAttack" to="." method="_on_enemy_can_attack_body_entered"]
 [connection signal="body_exited" from="enemyCanAttack" to="." method="_on_enemy_can_attack_body_exited"]
 [connection signal="timeout" from="enemyAttackCooldownTimer" to="." method="_on_enemy_attack_cooldown_timer_timeout"]
 [connection signal="timeout" from="playerAttackCooldownTimer" to="." method="_on_player_attack_cooldown_timer_timeout"]
+[connection signal="timeout" from="healthRegen" to="." method="_on_health_regen_timeout"]

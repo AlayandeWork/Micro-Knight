@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmpqu27uky65h"]
+[gd_scene load_steps=10 format=3 uid="uid://bmpqu27uky65h"]
 
 [ext_resource type="Script" path="res://World/Level/level_2.gd" id="1_5jhky"]
 [ext_resource type="Texture2D" uid="uid://4fy24dcseiw5" path="res://World/Resources/full spritesheet.png" id="1_6bpe7"]
 [ext_resource type="Texture2D" uid="uid://matatknynsq7" path="res://World/Resources/full tilemap.png" id="2_vbpxc"]
 [ext_resource type="PackedScene" uid="uid://cs4fi7sgd5h3c" path="res://Player/player.tscn" id="4_owg5n"]
+[ext_resource type="PackedScene" uid="uid://bsffsxoaothbb" path="res://Enemy/enemy.tscn" id="5_pi64b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8mspx"]
 texture = ExtResource("1_6bpe7")
@@ -731,7 +732,7 @@ size = Vector2(112.5, 20)
 script = ExtResource("1_5jhky")
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(149, 97)
+position = Vector2(262, 159)
 tile_set = SubResource("TileSet_x6xk2")
 format = 2
 layer_0/name = "Ground"
@@ -744,11 +745,14 @@ layer_2/tile_data = PackedInt32Array(393206, 65537, 7, 393207, 131073, 6, 393208
 [node name="transitionArea2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="transitionArea2"]
-position = Vector2(158, 205)
+position = Vector2(270, 267)
 shape = SubResource("RectangleShape2D_odel6")
 
 [node name="Player" parent="." instance=ExtResource("4_owg5n")]
 position = Vector2(156, 132)
+
+[node name="enemy" parent="." instance=ExtResource("5_pi64b")]
+position = Vector2(297, 132)
 
 [connection signal="body_entered" from="transitionArea2" to="." method="_on_transition_area_2_body_entered"]
 [connection signal="body_exited" from="transitionArea2" to="." method="_on_transition_area_2_body_exited"]

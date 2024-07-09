@@ -16,6 +16,7 @@ func _physics_process(delta):
 	player_movement(delta)
 	enemyAttacking()
 	AttackAnimation()
+	UpdateHeathBar()
 	
 	# Player Health Check function
 	if playerHealth <= 0:
@@ -136,3 +137,19 @@ func _on_player_attack_cooldown_timer_timeout():
 	$playerAttackCooldownTimer.stop()
 	Globle.playerCurrentlyAttacking = false
 	playerAttackAnim = false
+
+func UpdateHeathBar():
+	$playerHealthBar.value = playerHealth
+	
+	if playerHealth >= 100:
+		$playerHealthBar.visible = false
+	else:
+		$playerHealthBar.visible = true
+		
+func _on_health_regen_timeout():
+	if playerHealth < 100:
+		playerHealth += 20
+		if playerHealth > 100:
+			playerHealth = 100
+	if playerHealth <= 0:
+		playerHealth = 0
