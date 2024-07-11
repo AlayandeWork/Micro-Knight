@@ -7,7 +7,8 @@ var playerHealth = 100
 var speed = 150
 var direction = "none"
 var playerAttackAnim = false
-
+var acceleration = 800
+var friction = 600
 @onready var anim = $AnimatedSprite2D
 
 func _ready():
@@ -17,11 +18,12 @@ func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	input_vector.y = Input.get_action_strength("Down") - Input.get_action_strength("Up")
+	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
-		velocity = input_vector
+		velocity = velocity.move_toward(input_vector * speed, acceleration * delta)
 	else:
-		velocity = Vector2.ZERO
+		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	#player_movement(delta)
 	enemyAttacking()
 	#AttackAnimation()
@@ -63,7 +65,7 @@ func _physics_process(delta):
 		#animationplay(0)
 		#velocity = Vector2.ZERO
 
-	move_and_collide(velocity)
+	move_and_collide(velocity * delta)
 
 #func animationplay(move):
 	#if direction == "right":
