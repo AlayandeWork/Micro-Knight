@@ -24,7 +24,7 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 	#player_movement(delta)
 	enemyAttacking()
-	AttackAnimation()
+	#AttackAnimation()
 	UpdateHeathBar()
 	
 	# Player Health Check function
@@ -65,38 +65,38 @@ func _physics_process(delta):
 
 	move_and_collide(velocity)
 
-func animationplay(move):
-	if direction == "right":
-		anim.flip_h = false
-		if move == 1:
-			anim.play("run_right")
-		else:
-			if playerAttackAnim == false:
-				anim.play("idle_right")
-			
-	elif direction == "left":
-		anim.flip_h = true
-		if move == 1:
-			anim.play("run_right")
-		else:
-			if playerAttackAnim == false:
-				anim.play("idle_right")
-			
-	elif direction == "up":
-		anim.flip_h = false
-		if move == 1:
-			anim.play("run_up")
-		else:
-			if playerAttackAnim == false:
-				anim.play("idle_up")
-			
-	elif direction == "down":
-		anim.flip_h = false
-		if move == 1:
-			anim.play("run_down")
-		else:
-			if playerAttackAnim == false:
-				anim.play("idle_down")
+#func animationplay(move):
+	#if direction == "right":
+		#anim.flip_h = false
+		#if move == 1:
+			#anim.play("run_right")
+		#else:
+			#if playerAttackAnim == false:
+				#anim.play("idle_right")
+			#
+	#elif direction == "left":
+		#anim.flip_h = true
+		#if move == 1:
+			#anim.play("run_right")
+		#else:
+			#if playerAttackAnim == false:
+				#anim.play("idle_right")
+			#
+	#elif direction == "up":
+		#anim.flip_h = false
+		#if move == 1:
+			#anim.play("run_up")
+		#else:
+			#if playerAttackAnim == false:
+				#anim.play("idle_up")
+			#
+	#elif direction == "down":
+		#anim.flip_h = false
+		#if move == 1:
+			#anim.play("run_down")
+		#else:
+			#if playerAttackAnim == false:
+				#anim.play("idle_down")
 
 
 func _on_enemy_can_attack_body_entered(body):
@@ -121,25 +121,25 @@ func player():
 func _on_enemy_attack_cooldown_timer_timeout():
 	enemyAttackCoolDown = true
 	
-func AttackAnimation():
-	if 	Input.is_action_just_pressed("Attack"):
-		Globle.playerCurrentlyAttacking = true
-		playerAttackAnim = true
-		
-		if direction == "right":
-			$AnimatedSprite2D.flip_h = false
-			anim.play("attack_right")
-			$playerAttackCooldownTimer.start()
-		if direction == "left":
-			$AnimatedSprite2D.flip_h = true
-			anim.play("attack_right")
-			$playerAttackCooldownTimer.start()
-		if direction == "up":
-			anim.play("attack_up")
-			$playerAttackCooldownTimer.start()
-		if direction == "down":
-			anim.play("attack_down")
-			$playerAttackCooldownTimer.start()
+#func AttackAnimation():
+	#if 	Input.is_action_just_pressed("Attack"):
+		#Globle.playerCurrentlyAttacking = true
+		#playerAttackAnim = true
+		#
+		#if direction == "right":
+			#$AnimatedSprite2D.flip_h = false
+			#anim.play("attack_right")
+			#$playerAttackCooldownTimer.start()
+		#if direction == "left":
+			#$AnimatedSprite2D.flip_h = true
+			#anim.play("attack_right")
+			#$playerAttackCooldownTimer.start()
+		#if direction == "up":
+			#anim.play("attack_up")
+			#$playerAttackCooldownTimer.start()
+		#if direction == "down":
+			#anim.play("attack_down")
+			#$playerAttackCooldownTimer.start()
 			
 
 		
