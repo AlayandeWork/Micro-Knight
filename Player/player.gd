@@ -7,13 +7,22 @@ var playerHealth = 100
 var speed = 150
 var direction = "none"
 var playerAttackAnim = false
+
 @onready var anim = $AnimatedSprite2D
 
 func _ready():
 	anim.play("idle_down")
 
 func _physics_process(delta):
-	player_movement(delta)
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
+	input_vector.y = Input.get_action_strength("Down") - Input.get_action_strength("Up")
+	
+	if input_vector != Vector2.ZERO:
+		velocity = input_vector
+	else:
+		velocity = Vector2.ZERO
+	#player_movement(delta)
 	enemyAttacking()
 	AttackAnimation()
 	UpdateHeathBar()
@@ -24,36 +33,37 @@ func _physics_process(delta):
 		playerHealth = 0
 		print("Player is Dead!!!")
 		self.queue_free()
+		
 
-func player_movement(delta):
-	if Input.is_action_pressed("ui_right"):
-		direction = "right"
-		animationplay(1)
-		velocity.y = 0
-		velocity.x = speed
-		
-	elif Input.is_action_pressed("ui_left"):
-		direction = "left"
-		animationplay(1)
-		velocity.y = 0
-		velocity.x = -speed
-		
-	elif Input.is_action_pressed("ui_up"):
-		direction = "up"
-		animationplay(1)
-		velocity.y = -speed
-		velocity.x = 0
-		
-	elif Input.is_action_pressed("ui_down"):
-		direction = "down"
-		animationplay(1)
-		velocity.y = speed
-		velocity.x = 0
-	else:
-		animationplay(0)
-		velocity = Vector2.ZERO
+#func player_movement(delta):
+	#if Input.is_action_pressed("ui_right"):
+		#direction = "right"
+		#animationplay(1)
+		#velocity.y = 0
+		#velocity.x = speed
+		#
+	#elif Input.is_action_pressed("ui_left"):
+		#direction = "left"
+		#animationplay(1)
+		#velocity.y = 0
+		#velocity.x = -speed
+		#
+	#elif Input.is_action_pressed("ui_up"):
+		#direction = "up"
+		#animationplay(1)
+		#velocity.y = -speed
+		#velocity.x = 0
+		#
+	#elif Input.is_action_pressed("ui_down"):
+		#direction = "down"
+		#animationplay(1)
+		#velocity.y = speed
+		#velocity.x = 0
+	#else:
+		#animationplay(0)
+		#velocity = Vector2.ZERO
 
-	move_and_slide()
+	move_and_collide(velocity)
 
 func animationplay(move):
 	if direction == "right":
