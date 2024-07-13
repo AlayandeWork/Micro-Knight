@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1720707468
+::res://::1720887151
 icon.svg::CompressedTexture2D::1985095192275914223::1720064251::1720064251::1::::<><>::
 ::res://Enemy/::1720516703
 enemy.gd::GDScript::-1::1720515687::0::1::::<>CharacterBody2D<>::
@@ -7,16 +7,16 @@ enemy.tscn::PackedScene::3660478716885882039::1720516703::0::1::::<><>::res://En
 enemy_sprite.png::CompressedTexture2D::4932977896976872049::1720064251::1720064251::1::::<><>::
 ::res://Global/::1720505621
 global.gd::GDScript::-1::1720505621::0::1::::<>Node<>::
-::res://Player/::1720670388
-player.gd::GDScript::-1::1720670325::0::1::::<>CharacterBody2D<>::
+::res://Player/::1720799548
+player.gd::GDScript::-1::1720742143::0::1::::<>CharacterBody2D<>::
 Player.png::CompressedTexture2D::6376397999570703379::1720064251::1720064251::1::::<><>::
-player.tscn::PackedScene::6096427087885083830::1720670388::0::1::::<><>::res://Player/player.gd<>uid://cw31lxa67xm7l::::res://Player/Player.png
+player.tscn::PackedScene::6096427087885083830::1720799548::0::1::::<><>::res://Player/player.gd<>uid://cw31lxa67xm7l::::res://Player/Player.png
 ::res://World/::1720064251
-::res://World/Level/::1720515719
-level.gd::GDScript::-1::1720467601::0::1::::<>Node2D<>::
-level.tscn::PackedScene::7472442635638612097::1720515719::0::1::::<><>::res://World/Level/level.gd<>uid://cs4fi7sgd5h3c::::res://Player/player.tscn<>uid://matatknynsq7::::res://World/Resources/full tilemap.png<>uid://bsffsxoaothbb::::res://Enemy/enemy.tscn
-level_2.gd::GDScript::-1::1720466529::0::1::::<>Node2D<>::
-level_2.tscn::PackedScene::3260661129909994847::1720515719::0::1::::<><>::res://World/Level/level_2.gd<>uid://4fy24dcseiw5::::res://World/Resources/full spritesheet.png<>uid://matatknynsq7::::res://World/Resources/full tilemap.png<>uid://cs4fi7sgd5h3c::::res://Player/player.tscn<>uid://bsffsxoaothbb::::res://Enemy/enemy.tscn
+::res://World/Level/::1720742201
+level.gd::GDScript::-1::1720707776::0::1::::<>Node2D<>::
+level.tscn::PackedScene::7472442635638612097::1720742201::0::1::::<><>::res://World/Level/level.gd<>uid://cs4fi7sgd5h3c::::res://Player/player.tscn<>uid://matatknynsq7::::res://World/Resources/full tilemap.png
+level_2.gd::GDScript::-1::1720707748::0::1::::<>RefCounted<>::
+level_2.tscn::PackedScene::3260661129909994847::1720742201::0::1::::<><>::res://World/Level/level_2.gd<>uid://4fy24dcseiw5::::res://World/Resources/full spritesheet.png<>uid://matatknynsq7::::res://World/Resources/full tilemap.png<>uid://cs4fi7sgd5h3c::::res://Player/player.tscn
 ::res://World/Resources/::1720064251
 bag_coins.png::CompressedTexture2D::2851804018759323296::1720064251::1720064251::1::::<><>::
 barrel.png::CompressedTexture2D::7107786203001848401::1720064251::1720064251::1::::<><>::
