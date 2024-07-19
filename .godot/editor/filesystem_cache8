@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1721230887
+::res://::1721363623
 icon.svg::CompressedTexture2D::1985095192275914223::1720064251::1720064251::1::::<><>::
 ::res://Enemy/::1720516703
 enemy.gd::GDScript::-1::1720515687::0::1::::<>CharacterBody2D<>::
@@ -7,10 +7,10 @@ enemy.tscn::PackedScene::3660478716885882039::1720516703::0::1::::<><>::res://En
 enemy_sprite.png::CompressedTexture2D::4932977896976872049::1720064251::1720064251::1::::<><>::
 ::res://Global/::1720505621
 global.gd::GDScript::-1::1720505621::0::1::::<>Node<>::
-::res://Player/::1721103387
+::res://Player/::1721230890
 player.gd::GDScript::-1::1720742143::0::1::::<>CharacterBody2D<>::
 Player.png::CompressedTexture2D::6376397999570703379::1720064251::1720064251::1::::<><>::
-player.tscn::PackedScene::6096427087885083830::1721103387::0::1::::<><>::res://Player/player.gd<>uid://cw31lxa67xm7l::::res://Player/Player.png
+player.tscn::PackedScene::6096427087885083830::1721230890::0::1::::<><>::res://Player/player.gd<>uid://cw31lxa67xm7l::::res://Player/Player.png
 ::res://World/::1720064251
 ::res://World/Level/::1720887162
 level.gd::GDScript::-1::1720707776::0::1::::<>Node2D<>::
