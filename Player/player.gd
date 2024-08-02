@@ -31,7 +31,7 @@ func _physics_process(delta):
 	enemyAttacking()
 	
 	UpdateHeathBar()
-	
+	 
 	# Player Health Check function
 	if playerHealth <= 0:
 		playerIsAlive = false
