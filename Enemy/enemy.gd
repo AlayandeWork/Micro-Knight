@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var playerIsChasing = false;
 var enemySpeed = 50;
-var player = null
+var player = nullggg
 var playerInRange = false
 var enemyHealth = 100
 var canTakeDamage = true
