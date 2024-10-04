@@ -4,7 +4,7 @@ var enemyInRange = false
 var enemyAttackCoolDown = true
 var playerIsAlive = true
 var playerHealth = 100
-var speed = 150
+var speed = 150hh
 
 var playerAttackAnim = false
 var acceleration = 800
